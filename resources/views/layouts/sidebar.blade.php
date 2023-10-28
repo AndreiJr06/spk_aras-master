@@ -14,34 +14,34 @@
         <div class="sidebar-body">
             <ul class="sidebar-body-menu">
                 <li>
-                    <a href="{{ url('dashboard') }}"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                    <a href="{{ url('dashboard') }}" @if (Request::segment(1) == 'dashboard') class="active" @endif><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{ url('data-user') }}"><span class="icon fa-solid fa-users fa-xl"
+                    <a href="{{ url('data-user') }}" @if (Request::segment(1) == 'data-user') class="active" @endif><span class="icon fa-solid fa-users fa-xl"
                             aria-hidden="true"></span>Data User</a>
                 </li>
                 <li>
-                    <a href="{{ url('data-guru') }}"><span class="icon fa-solid fa-chalkboard-user fa-xl"
+                    <a href="{{ url('data-guru') }}" @if (Request::segment(1) == 'data-guru') class="active" @endif><span class="icon fa-solid fa-chalkboard-user fa-xl"
                             aria-hidden="true"></span>Data Atlet</a>
                 </li>
                 <li>
-                    <a href="{{ url('data-periode') }}"><span class="icon fa-solid fa-calendar-days fa-xl"
+                    <a href="{{ url('data-periode') }}" @if (Request::segment(1) == 'data-periode') class="active" @endif><span class="icon fa-solid fa-calendar-days fa-xl"
                             aria-hidden="true"></span>Periode</a>
                 </li>
                 <li>
-                    <a href="{{ url('data-kriteria') }}"><span class="icon fa-solid fa-sitemap fa-xl"
+                    <a href="{{ url('data-kriteria') }}" @if (Request::segment(1) == 'data-kriteria') class="active" @endif><span class="icon fa-solid fa-sitemap fa-xl"
                             aria-hidden="true"></span>Kriteria</a>
                 </li>
                 <li>
-                    <a href="{{ url('penilaian') }}"><span class="icon fa-solid fa-file-pen fa-xl"
+                    <a href="{{ url('penilaian') }}" @if (Request::segment(1) == 'penilaian') class="active" @endif><span class="icon fa-solid fa-file-pen fa-xl"
                             aria-hidden="true"></span>Penilaian</a>
                 </li>
                 <li>
-                    <a href="{{ url('perhitungan') }}"><span class="icon fa-solid fa-diagram-project fa-xl"
+                    <a href="{{ url('perhitungan') }}" @if (Request::segment(1) == 'perhitungan') class="active" @endif><span class="icon fa-solid fa-diagram-project fa-xl"
                             aria-hidden="true"></span>Perhitungan</a>
                 </li>
                 <li>
-                    <a href="{{ url('perangkingan') }}"><span class="icon fa-solid fa-ranking-star fa-xl"
+                    <a href="{{ url('perangkingan') }}" @if (Request::segment(1) == 'perangkingan') class="active" @endif><span class="icon fa-solid fa-ranking-star fa-xl"
                             aria-hidden="true"></span>Perangkingan</a>
                 </li>
             </ul>
