@@ -8,6 +8,7 @@ use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PerangkinganController;
 use App\Http\Controllers\PerhituganController;
 use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('data-guru', DataGuruController::class);
     Route::resource('data-periode', PeriodeController::class);
     Route::resource('data-kriteria', KriteriaController::class);
+    Route::resource('data-sub-kriteria', SubKriteriaController::class);
     Route::resource('penilaian', PenilaianController::class);
     Route::resource('perhitungan', PerhituganController::class);
     Route::resource('perangkingan', PerangkinganController::class)->only([

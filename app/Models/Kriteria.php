@@ -18,4 +18,9 @@ class Kriteria extends Model
     {
         return $this->hasOne(Bobot::class, 'id_kriteria');
     }
+
+    public function subkriteria()
+    {
+        return $this->hasMany(SubKriteria::class, 'kode_kriteria', 'kode_kriteria');
+    }
 }
