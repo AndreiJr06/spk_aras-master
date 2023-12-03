@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataGuruController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\NilaiSubKriteriaController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PerangkinganController;
 use App\Http\Controllers\PerhituganController;
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('data-periode', PeriodeController::class);
     Route::resource('data-kriteria', KriteriaController::class);
     Route::resource('data-sub-kriteria', SubKriteriaController::class);
+    Route::resource('nilai-sub-kriteria', NilaiSubKriteriaController::class);
     Route::resource('penilaian', PenilaianController::class);
     Route::resource('perhitungan', PerhituganController::class);
     Route::resource('perangkingan', PerangkinganController::class)->only([

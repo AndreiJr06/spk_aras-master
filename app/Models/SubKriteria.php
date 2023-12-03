@@ -14,7 +14,6 @@ class SubKriteria extends Model
     protected $fillable = [
         'kode_kriteria',
         'nama_sub_kriteria',
-        'nilai'
     ];
 
     public function kriteria()

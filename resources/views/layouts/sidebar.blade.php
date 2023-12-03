@@ -33,7 +33,7 @@
                             aria-hidden="true"></span>Kriteria</a>
                 </li>
                 <li>
-                    <a href="{{ url('data-sub-kriteria') }}" @if (Request::segment(1) == 'data-sub-kriteria') class="active" @endif><span class="icon fa-solid fa-sitemap fa-xl"
+                    <a href="{{ url('data-sub-kriteria') }}" @if (Request::segment(1) == 'data-sub-kriteria' || Request::segment(1) == 'nilai-sub-kriteria') class="active" @endif><span class="icon fa-solid fa-bars fa-xl"
                             aria-hidden="true"></span>Sub Kriteria</a>
                 </li>
                 <li>

@@ -21,11 +21,7 @@
                                 </div>
                                 <div class="form-group mb-2">
                                     <label class="form-label" for="nama_sub_kriteria">Nama Sub Kriteria</label>
-                                    <input type="text" class="form-control" id="nama_sub_kriteria" name="nama_sub_kriteria">
-                                </div>
-                                <div class="form-group mb-2">
-                                    <label class="form-label" for="nilai">Nilai Sub Kriteria</label>
-                                    <input type="number" class="form-control" id="nilai" name="nilai" max="1">
+                                    <input type="text" class="form-control" id="nama_sub_kriteria" name="nama_sub_kriteria" placeholder="Masukkan Nama Sub Kriteria">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -59,11 +55,7 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nama_sub_kriteria">Nama Sub Kriteria</label>
-                                <input type="text" class="form-control" id="nama_sub_kriteria" name="nama_sub_kriteria">
-                            </div>
-                            <div class="form-group mb-2">
-                                <label class="form-label" for="nilai">Nilai Sub Kriteria</label>
-                                <input type="number" class="form-control" id="nilai" name="nilai" max="1">
+                                <input type="text" class="form-control" id="nama_sub_kriteria" name="nama_sub_kriteria" placeholder="Masukkan Nama Sub Kriteria">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -99,7 +91,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Sub Kriteria</th>
-                                        <th>Nilai Sub Kriteria</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -111,23 +102,21 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $sub->nama_sub_kriteria }}</td>
-                                            <td>{{ $sub->nilai }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-warning btn-sm"
-                                                    onclick="fungsiEdit('{{ $sub->id }}|{{ $sub->kode_kriteria }}|{{ $sub->nama_sub_kriteria }}|{{ $sub->kriteria->nama_kriteria }}|{{ $sub->nilai }}')"
+                                                    onclick="fungsiEdit('{{ $sub->id }}|{{ $sub->kode_kriteria }}|{{ $sub->nama_sub_kriteria }}|{{ $sub->kriteria->nama_kriteria }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataSubKriteria">
                                                     <i class="fa fa-edit">Edit</i>
                                                 </button>
-
                                                 <form action="{{ url('data-sub-kriteria/' . $sub->id) }}" class="d-inline"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
-
                                                     <button type="submit" class="btn btn-sm btn-danger btn-delete">
                                                         <i class="fa fa-trash">Hapus</i>
                                                     </button>
                                                 </form>
+                                                <a href="{{ route('nilai-sub-kriteria.show', $sub->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye">Lihat</i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -140,7 +129,16 @@
             </div>
         </div>
         @empty
-
+        <div class="row mt-3 justify-content-center">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5>-- Data Kriteria Masih Kosong --</h5>
+                        <a href="{{ route('data-kriteria.index') }}" class="btn btn-primary mt-2">Klik tombol ini untuk ke halaman kriteria</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         @endforelse
     @endsection
 
@@ -152,7 +150,6 @@
                 $('#ubahDataSubKriteria .modal-body #kode_kriteria').val(data[1]);
                 $('#ubahDataSubKriteria .modal-body #nama_sub_kriteria').val(data[2]);
                 $('#ubahDataSubKriteria .modal-body #nama_kriteria').val(data[3]);
-                $('#ubahDataSubKriteria .modal-body #nilai').val(data[4]);
                 $('.selectpicker').selectpicker('refresh');
             }
         </script>

@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sub_kriteria', function (Blueprint $table) {
+        Schema::create('nilai_sub_kriteria', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_kriteria');
-            $table->string('nama_sub_kriteria');
+            $table->unsignedBigInteger('sub_kriteria_id');
+            $table->foreign('sub_kriteria_id')->references('id')->on('sub_kriteria')->onDelete('cascade');
+            $table->string('nama');
+            $table->float('nilai', 5, 2);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_kriteria');
+        Schema::dropIfExists('nilai_sub_kriteria');
     }
 };

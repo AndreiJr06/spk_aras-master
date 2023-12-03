@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Kriteria;
+use App\Models\NilaiSubKriteria;
 use App\Models\SubKriteria;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class SubKriteriaController extends Controller
+class NilaiSubKriteriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,7 @@ class SubKriteriaController extends Controller
      */
     public function index()
     {
-        $items = Kriteria::all();
-
-        return view('subkriteria', compact('items'));
+        //
     }
 
     /**
@@ -40,16 +38,16 @@ class SubKriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
         request()->validate([
-            'kode_kriteria' => 'required',
-            'nama_sub_kriteria' => 'required',
+            'nama' => 'required',
+            'nilai' => 'required',
         ]);
 
-        $sub_kriteria = new SubKriteria();
-        $sub_kriteria->kode_kriteria = $request->kode_kriteria;
-        $sub_kriteria->nama_sub_kriteria = $request->nama_sub_kriteria;
-        $sub_kriteria->save();
+        $data = new NilaiSubKriteria();
+        $data->sub_kriteria_id = $request->sub_kriteria_id;
+        $data->nama = $request->nama;
+        $data->nilai = $request->nilai;
+        $data->save();
 
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
         return back();
@@ -63,7 +61,10 @@ class SubKriteriaController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = SubKriteria::findOrFail($id);
+        $items = NilaiSubKriteria::where('sub_kriteria_id', $id)->get();
+
+        return view('nilaisubkriteria', compact('item', 'items'));
     }
 
     /**
@@ -87,14 +88,14 @@ class SubKriteriaController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'kode_kriteria' => 'required',
-            'nama_sub_kriteria' => 'required',
+            'nama' => 'required',
+            'nilai' => 'required',
         ]);
 
-        $sub_kriteria = SubKriteria::findOrFail($id);
-        $sub_kriteria->kode_kriteria = $request->kode_kriteria;
-        $sub_kriteria->nama_sub_kriteria = $request->nama_sub_kriteria;
-        $sub_kriteria->save();
+        $data = NilaiSubKriteria::findOrFail($id);
+        $data->nama = $request->nama;
+        $data->nilai = $request->nilai;
+        $data->save();
 
         Alert::success('Berhasil', 'Data Berhasil Diubah');
         return back();
@@ -108,8 +109,8 @@ class SubKriteriaController extends Controller
      */
     public function destroy($id)
     {
-        $sub_kriteria = SubKriteria::findOrFail($id);
-        $sub_kriteria->delete();
+        $data = NilaiSubKriteria::findOrFail($id);
+        $data->delete();
 
         Alert::success('Berhasil', 'Data Berhasil Dihapus');
         return back();

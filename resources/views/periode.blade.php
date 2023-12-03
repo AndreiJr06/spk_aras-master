@@ -16,7 +16,7 @@
                         <div class="modal-body">
                             <div class="form-group mb-2">
                                 <label for="nama_periode">Nama Periode</label>
-                                <input type="text" class="form-control" id="nama_periode" name="nama_periode">
+                                <input type="text" class="form-control" id="nama_periode" name="nama_periode" placeholder="Masukkan Tahun Periode">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -42,7 +42,7 @@
                         <div class="modal-body">
                             <div class="form-group mb-2">
                                 <label for="nama_periode">Nama Periode</label>
-                                <input type="text" class="form-control" id="nama_periode" name="nama_periode">
+                                <input type="text" class="form-control" id="nama_periode" name="nama_periode" placeholder="Masukkan Tahun Periode">
                             </div>
 
                         </div>
