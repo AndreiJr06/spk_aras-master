@@ -49,13 +49,18 @@ class PenilaianController extends Controller
         $id_periode = $request->id_periode;
 
         foreach ($request->id_kriteria as $key => $id_kriteria) {
-            $nilai = $request->nilai[$key];
+            foreach ($request->nilai as $value) {
+                $opts = explode("+", $value);
+                foreach ($opts as $key => $a) {
+                    dd($a[0]);
+                }
+            }
 
             $data = [
                 'id_guru' => $id_guru,
                 'id_periode' => $id_periode,
                 'id_kriteria' => $id_kriteria,
-                'nilai' => is_null($nilai) ? 0 : (float) $nilai,
+                'nilai' => (float) $opts[$key],
             ];
 
             $insert[] = $data;

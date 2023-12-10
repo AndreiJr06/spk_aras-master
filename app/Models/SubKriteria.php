@@ -20,4 +20,9 @@ class SubKriteria extends Model
     {
         return $this->hasOne(Kriteria::class, 'kode_kriteria', 'kode_kriteria');
     }
+
+    public function nilai()
+    {
+        return $this->hasMany(NilaiSubKriteria::class, 'sub_kriteria_id', 'id');
+    }
 }

@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nilai">Nilai</label>
-                                <input type="number" class="form-control" id="nilai" name="nilai" placeholder="00.00" step="0.1" max="1" min="0">
+                                <input type="number" class="form-control" id="nilai" name="nilai" placeholder="00.00" step="0.1" min="0">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -50,7 +50,7 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nilai">Nilai</label>
-                                <input type="number" step="0.1" class="form-control" id="nilai" name="nilai" max="1"  placeholder="00.00" min="0">
+                                <input type="number" step="0.1" class="form-control" id="nilai" name="nilai" placeholder="00.00" min="0">
                             </div>
                         </div>
                         <div class="modal-footer">

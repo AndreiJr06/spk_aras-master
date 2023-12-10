@@ -51,17 +51,27 @@
                                         <option data-value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
                                 </datalist>
-
                                 <input type="hidden" name="id_guru" id="id_guru-hidden">
                             </div>
                             @foreach ($kriteria as $item)
                                 <div class="form-group mb-2">
-                                    <label class="form-label" for="nilai_bobot">{{ $item->nama_kriteria }}
-                                        ({{ $item->kode_kriteria }})
-                                    </label>
+                                    <label class="form-label font-weight-bold" for="nilai_bobot">{{ $item->nama_kriteria }} ({{ $item->kode_kriteria }})
+                                    </label><br>
                                     <input type="hidden" name="id_kriteria[]" value="{{ $item->id }}">
-                                    <input type="number" step="any" class="form-control" name="nilai[]"
-                                        id="nilai{{ $item->id }}" placeholder="00.00">
+                                    @forelse ($item->subkriteria as $item2)
+                                        <label class="form-label" for="nilai_bobot">{{ $item2->nama_sub_kriteria }}
+                                        <input type="hidden" name="id_sub_kriteria[]" value="{{ $item2->id }}">
+                                        <select name="nilai[]" id="nilai_bobot" class="form-control">
+                                            <option hidden>-- Pilih Jawaban Anda --</option>
+                                            @forelse ($item2->nilai as $item3)
+                                            <option value="{{ $item3->nilai }}+{{ $item->id }}">{{ $item3->nama }}</option>
+                                            @empty
+
+                                            @endforelse
+                                        </select>
+                                    @empty
+
+                                    @endforelse
                                 </div>
                             @endforeach
                         </div>
