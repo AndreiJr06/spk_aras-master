@@ -60,7 +60,7 @@
                                     <input type="hidden" name="id_kriteria[]" value="{{ $item->id }}">
                                     @forelse ($item->subkriteria as $item2)
                                         <label class="form-label" for="nilai_bobot">{{ $item2->nama_sub_kriteria }}
-                                        <input type="hidden" name="id_sub_kriteria[]" value="{{ $item2->id }}">
+                                        <input type="hidden" name="id_sub_kriteria[]" value="{{ $item->id }}">
                                         <select name="nilai[]" id="nilai_bobot" class="form-control">
                                             <option hidden>-- Pilih Jawaban Anda --</option>
                                             @forelse ($item2->nilai as $item3)
@@ -189,12 +189,6 @@
                                                         <td>{{ $kriteria['nilai'] }}</td>
                                                     @endforeach
                                                     <td>
-                                                        <button type="button" class="btn btn-warning btn-sm"
-                                                            onclick="fungsiEdit('{{ $item }}')"
-                                                            data-bs-toggle="modal" data-bs-target="#ubahPenilaian">
-                                                            <i class="fa fa-edit">Edit</i>
-                                                        </button>
-
                                                         <form action="{{ url('penilaian/' . $item->id) }}"
                                                             class="d-inline" method="POST">
                                                             @csrf
@@ -244,25 +238,5 @@
                 }
             }
         });
-
-        function fungsiEdit(data) {
-            var tampung = document.getElementById('tampung');
-            tampung.innerHTML = '';
-            var data = JSON.parse(data);
-            var id_guru = document.querySelector('select[name="id_guru"]');
-            id_guru.value = data.id;
-            id_guru.disabled = true;
-            for (let i = 0; i < data.kriteria.length; i++) {
-                tampung.innerHTML += '<div class="form-group mb-2"><label class="form-label" for="nilai_' +
-                    data.kriteria[i].id + '">' + data.kriteria[i].nama_kriteria +
-                    '</label><input type="number" step="any" class="form-control" id="nilai_' +
-                    data.kriteria[i].id + '" name="nilai[]" value="' + data.kriteria[i].nilai +
-                    '"><input type="hidden" name="id_kriteria[]" value="' + data.kriteria[i].id +
-                    '"></div>';
-            }
-
-            var form = document.getElementById('ubahPenilaianForm');
-            form.action = "{{ url('penilaian') }}" + '/' + data.id;
-        }
     </script>
 @endsection

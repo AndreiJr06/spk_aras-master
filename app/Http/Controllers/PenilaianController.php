@@ -44,25 +44,58 @@ class PenilaianController extends Controller
      */
     public function store(Request $request)
     {
-
         $id_guru = $request->id_guru;
         $id_periode = $request->id_periode;
 
-        foreach ($request->id_kriteria as $key => $id_kriteria) {
-            // foreach ($request->nilai as $value) {
-            //     $opts = explode("+", $value);
-            //     foreach ($opts as $key => $a) {
-            //         dd($a[0]);
-            //     }
-            // }
+        // $id = array();
 
-            $nilai = $request->nilai[$key];
+        // foreach ($request->nilai as $key => $value) {
+        //     $a = explode('+', $value);
+
+        //     if (!in_array($a[1], $id)) {
+        //         $id[] =
+        //     }
+
+        //     dd($a[0]);
+        // }
+
+        // foreach ($request->id_kriteria as $key => $id_kriteria) {
+        //     $nilai = $request->nilai[$key];
+
+        //     $data = [
+        //         'id_guru' => $id_guru,
+        //         'id_periode' => $id_periode,
+        //         'id_kriteria' => $id_kriteria,
+        //         'nilai' => (float) $nilai[$key],
+        //     ];
+
+        //     $insert[] = $data;
+        // }
+
+        $nilaiCount = [];
+
+        foreach ($request->nilai as $nilai) {
+            $nilaiParts = explode('+', $nilai);
+            $nilaiValue = (float) $nilaiParts[0]; // Mengubah nilai menjadi float atau integer
+            $nilaiId = $nilaiParts[1]; // ID kriteria
+
+            // Inisialisasi nilai count jika belum ada
+            if (!isset($nilaiCount[$nilaiId])) {
+                $nilaiCount[$nilaiId] = 0;
+            }
+
+            // Menambahkan nilai ke ID kriteria yang sesuai
+            $nilaiCount[$nilaiId] += $nilaiValue;
+        }
+
+        foreach ($request->id_kriteria as $key => $id_kriteria) {
+            $nilai = $nilaiCount[$id_kriteria];
 
             $data = [
                 'id_guru' => $id_guru,
                 'id_periode' => $id_periode,
                 'id_kriteria' => $id_kriteria,
-                'nilai' => (float) $nilai[$key],
+                'nilai' => (float) $nilai,
             ];
 
             $insert[] = $data;
