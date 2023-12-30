@@ -3,7 +3,7 @@
         <div class="sidebar-head">
             <a href="/dashboard" class="logo-wrapper text-center" title="Home">
                 <span class="sr-only">Home</span>
-                <img src="{{ asset('logo.png') }}" alt="Logo" class="icon-logo" />
+                <img src="{{ asset('frontend/logo.png') }}" alt="Logo" class="icon-logo" />
 
             </a>
             {{-- <button class="sidebar-toggle transparent-btn" title="Menu" type="button">

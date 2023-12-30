@@ -10,6 +10,12 @@ use App\Http\Controllers\PerangkinganController;
 use App\Http\Controllers\PerhituganController;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\SubKriteriaController;
+use App\Models\DataGuru;
+use App\Models\Hasil;
+use App\Models\Kriteria;
+use App\Models\Periode;
+use App\Models\SubKriteria;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,11 +31,10 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect()->route('dashboard');
-    } else {
-        return view('login');;
-    }
+    $periode = Periode::where('nama_periode', Carbon::now()->year)->first();
+    $items = Hasil::where('id_periode', $periode->id)->orderBy('rank', 'ASC')->get();
+
+    return view('layouts.home', compact('items'));
 });
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -42,7 +47,12 @@ Route::get('/table', function () {
 // route middleware auth
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {
-        return view('dashboard');
+        $atlet = DataGuru::count();
+        $kriteria = Kriteria::count();
+        $subkriteria = SubKriteria::count();
+        $periode = Periode::count();
+
+        return view('dashboard', compact('atlet', 'kriteria', 'subkriteria', 'periode'));
     })->name('dashboard');
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');

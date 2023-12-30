@@ -3,13 +3,40 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="card my-auto">
-                    <div class="card-body text-center p-5 my-auto">
-                        <div class="py-5">
-                            <h3 class="mb-4">Selamat Datang di Sistem Pemilihan Atlet Gulat PraPON Terbaik</h3>
-                            <h2>PPLP Provinsi Bengkulu</h2>
-                        </div>
+            <div class="col-12">
+                <div class="alert alert-success" role="alert">
+                    Selamat Datang di Sistem Pemilihan Atlet Gulat PraPON Terbaik PPLP Provinsi Bengkulu
+                </div>
+            </div>
+            <div class="col-md-3 mt-2">
+                <div class="card text-bg-primary">
+                    <h5 class="card-header">Atlet</h5>
+                    <div class="card-body">
+                        <p class="card-text">Total : {{ $atlet }} orang</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mt-2">
+                <div class="card text-bg-secondary">
+                    <h5 class="card-header">Kriteria</h5>
+                    <div class="card-body">
+                        <p class="card-text">Jumlah : {{ $kriteria }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mt-2">
+                <div class="card text-bg-warning">
+                    <h5 class="card-header">Sub Kriteria</h5>
+                    <div class="card-body">
+                        <p class="card-text">Jumlah : {{ $subkriteria }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mt-2">
+                <div class="card text-bg-danger">
+                    <h5 class="card-header">Periode</h5>
+                    <div class="card-body">
+                        <p class="card-text">Jumlah : {{ $periode }}</p>
                     </div>
                 </div>
             </div>
