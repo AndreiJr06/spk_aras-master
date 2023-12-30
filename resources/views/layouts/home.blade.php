@@ -50,13 +50,13 @@ https://templatemo.com/tm-589-lugx-gaming
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="{{ route('home') }}" class="logo">
                         <img src="{{ url('frontend/prov.png') }}" alt="" style="height: 50px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html" class="active">Home</a></li>
+                      <li><a href="{{ route('home') }}" class="active">Home</a></li>
                       <li><a href="#trending">Perangkingan</a></li>
                       @if (Auth::user())
                       <li><a href="{{ route('dashboard') }}">Dashboard</a></li>

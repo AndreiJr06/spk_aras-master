@@ -35,7 +35,7 @@ Route::get('/', function () {
     $items = Hasil::where('id_periode', $periode->id)->orderBy('rank', 'ASC')->get();
 
     return view('layouts.home', compact('items'));
-});
+})->name('home');
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('cek-login', [AuthController::class, 'cek_login'])->name('cek_login');
