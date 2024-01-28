@@ -108,7 +108,7 @@
                                             <td>{{ $datas->tb }} cm</td>
                                             <td>
                                                 <button type="button" class="btn btn-warning btn-sm"
-                                                    onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama }}|{{ $datas->bb }}||{{ $datas->tb }}')"
+                                                    onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama }}|{{ $datas->bb }}|{{ $datas->tb }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataGuru">
                                                     <i class="fa fa-edit">Edit</i>
                                                 </button>
