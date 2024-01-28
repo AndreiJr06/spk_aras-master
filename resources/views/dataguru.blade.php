@@ -143,7 +143,7 @@
                 $('#ubahDataGuru form').attr('action', "{{ url('data-guru') }}/" + data[0]);
                 $('#ubahDataGuru .modal-body #nama').val(data[1]);
                 $('#ubahDataGuru .modal-body #bb').val(data[2]);
-                $('#ubahDataGuru .modal-body #tb').val(data[2]);
+                $('#ubahDataGuru .modal-body #tb').val(data[3upa]);
                 $('.selectpicker').selectpicker('refresh');
             }
         </script>
