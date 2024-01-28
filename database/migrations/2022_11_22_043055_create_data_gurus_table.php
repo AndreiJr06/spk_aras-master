@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('data_guru', function (Blueprint $table) {
+        Schema::create('data_atlet', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+						$table->integer('bb');
+						$table->integer('tb');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_guru');
+        Schema::dropIfExists('data_atlet');
     }
 };

@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Lugx Gaming Shop HTML5 Template</title>
+    <title>SPK Atlit Gulat Terbaik Kota Bengkulu</title>
+		<link rel="icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url('frontend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ url('frontend/assets/css/fontawesome.css') }}">
@@ -50,14 +51,14 @@ https://templatemo.com/tm-589-lugx-gaming
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="{{ route('home') }}" class="logo">
+                    <a href="{{ route('home') }}" class="logo mr-3">
                         <img src="{{ url('frontend/prov.png') }}" alt="" style="height: 50px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="{{ route('home') }}" class="active">Home</a></li>
-                      <li><a href="#trending">Perangkingan</a></li>
+                      <li><a href="#perangkingan">Perangkingan</a></li>
                       @if (Auth::user())
                       <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                       @endif
@@ -86,13 +87,14 @@ https://templatemo.com/tm-589-lugx-gaming
   <!-- ***** Header Area End ***** -->
 
   <div class="main-banner">
+		@include('sweetalert::alert')
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center">
           <div class="caption header-text">
             <h6>Selamat Datang di Sistem Pendukung Keputusan</h6>
             <h2>PEMILIHAN ATLIT GULAT TERBAIK BENGKULU</h2>
-            <p>LUGX Gaming is free Bootstrap 5 HTML CSS website template for your gaming websites. You can download and use this layout for commercial purposes. Please tell your friends about TemplateMo.</p>
+            <p>Website ini merupakan platform digital yang dirancang khusus untuk membantu dalam proses seleksi dan penilaian atlet gulat di Kota Bengkulu. Dengan antarmuka yang intuitif dan mudah digunakan, sistem ini menyediakan data komprehensif dan analisis mendalam terkait kinerja atlet, membantu dalam pengambilan keputusan yang lebih objektif dan adil.</p>
           </div>
         </div>
         <div class="col-lg-4 offset-lg-2">
@@ -153,41 +155,72 @@ https://templatemo.com/tm-589-lugx-gaming
     </div>
   </div> --}}
 
-  <div class="section trending" id="trending">
+  <div class="section trending" id="perangkingan">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-lg-6">
+        @if ($tahun != NULL)
+				<div class="col-lg-6">
           <div class="section-heading">
             <h6>Perangkingan</h6>
-            <h2>Perangkingan Tahun {{ \Carbon\Carbon::now()->year }}</h2>
+            <h2>Perangkingan Tahun {{ $tahun }}</h2>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="col-lg-8 col-md-8">
-            <div class="">
-              <table class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col" class="text-center">Ranking</th>
-                      <th scope="col">Nama</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      @forelse ($items as $item)
-                      <tr>
-                          <th scope="row" class="text-center">{{ $item->rank }}</th>
-                          <td>{{ $item->guru->nama }}</td>
-                        </tr>
-                      @empty
-
-                      @endforelse
-
-                  </tbody>
-                </table>
-            </div>
+				<div class="col-lg-2">
+					<select class="form-select" aria-label="Default select example" onchange="location = this.value;">
+						<option hidden selected>-- Pilih Tahun --</option>
+						@forelse ($tahunPeriode as $item)
+						<option value="{{ route('tahun', $item->nama_periode) }}" @if($tahun == $item->nama_periode) selected @endif>{{ $item->nama_periode }}</option>
+						@empty
+								
+						@endforelse
+						
+					</select>
+				</div>
+				@else
+				<div class="col-lg-6">
+          <div class="section-heading">
+            <h2>Data Periode Kosong</h2>
           </div>
+        </div>
+				@endif
       </div>
+			@if ($tahun != NULL)
+			<div class="container">
+        <div class="row justify-content-center">
+					<div class="col-lg-8 col-md-8">
+						<div class="">
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="text-center" style="width: 50% !importtant">Ranking</th>
+										<th class="text-center" style="width: 50% !importtant">Nama</th>
+									</tr>
+								</thead>
+								<tbody>
+									@if ($items != NULL)
+										@forelse ($items as $item)
+										<tr>
+											<th scope="row" class="text-center">{{ $item->rank }}</th>
+											<td class="text-center">{{ $item->guru->nama }}</td>
+										</tr>
+										@empty
+										<tr class="text-center">
+											<td colspan="2">-- Data Kosong --</td>
+										</tr>
+										@endforelse
+									@else
+									<tr class="text-center">
+										<td colspan="2">-- Data Kosong --</td>
+									</tr>
+									@endif                      
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+      </div>
+			@endif
+      
     </div>
   </div>
 

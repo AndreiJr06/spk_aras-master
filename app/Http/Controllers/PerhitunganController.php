@@ -10,7 +10,7 @@ use App\Models\Periode;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class PerhituganController extends Controller
+class PerhitunganController extends Controller
 {
     /**
      * Display a listing of the resource.

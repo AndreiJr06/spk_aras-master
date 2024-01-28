@@ -26,10 +26,10 @@
 </head>
 
 <body>
+		@include('sweetalert::alert')
     <div class="layer"></div>
     <main class="page-center">
         <article class="sign-up">
-
             <form class="sign-up-form form mt-5" action="cek-login" method="POST">
                 @csrf
                 <div class="row">
@@ -49,7 +49,6 @@
                     <input class="form-input" type="password" placeholder="Enter your password" name="password"
                         required>
                 </label>
-
                 <button type="submit" class="form-btn primary-default-btn transparent-btn">Masuk</button>
             </form>
         </article>

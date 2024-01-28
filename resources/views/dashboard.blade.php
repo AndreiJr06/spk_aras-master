@@ -26,9 +26,9 @@
             </div>
             <div class="col-md-3 mt-2">
                 <div class="card text-bg-warning">
-                    <h5 class="card-header">Sub Kriteria</h5>
+                    <h5 class="card-header text-white">Sub Kriteria</h5>
                     <div class="card-body">
-                        <p class="card-text">Jumlah : {{ $subkriteria }}</p>
+                        <p class="card-text text-white">Jumlah : {{ $subkriteria }}</p>
                     </div>
                 </div>
             </div>

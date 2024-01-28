@@ -41,10 +41,14 @@ class DataGuruController extends Controller
         //
         request()->validate([
             'nama' => 'required',
+            'bb' => 'required',
+            'tb' => 'required',
         ]);
 
         $data = new DataGuru;
         $data->nama = $request->nama;
+        $data->bb = $request->bb;
+        $data->tb = $request->tb;
         $data->save();
 
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
@@ -90,6 +94,8 @@ class DataGuruController extends Controller
 
         $data = DataGuru::findOrFail($id);
         $data->nama = $request->nama;
+				$data->bb = $request->bb;
+        $data->tb = $request->tb;
         $data->save();
 
         Alert::success('Berhasil', 'Data Berhasil Ditambahkan');

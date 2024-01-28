@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('hasil', function (Blueprint $table) {
             $table->id();
-            $table->double('si', 15, 8)->nullable();
-            $table->double('ki', 15, 8)->nullable();
+            $table->double('si', 15, 5)->nullable();
+            $table->double('ki', 15, 5)->nullable();
             $table->integer('rank')->unsigned()->nullable();
             $table->unsignedBigInteger('id_guru');
             $table->unsignedBigInteger('id_periode');
-            $table->foreign('id_guru')->references('id')->on('data_guru')->onDelete('cascade');
+            $table->foreign('id_guru')->references('id')->on('data_atlet')->onDelete('cascade');
             $table->foreign('id_periode')->references('id')->on('periode')->onDelete('cascade');
             $table->timestamps();
         });

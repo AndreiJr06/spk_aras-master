@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistem Pemilihan Atlet Gulat Terbaik</title>
+    <title>SPK Atlit Gulat Terbaik Kota Bengkulu</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./img/svg/logo.svg" type="image/x-icon" />
+    <link rel="icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">
     <!-- Custom styles -->
     @include('layouts.style')
 
@@ -86,6 +87,7 @@
             </nav>
             <!-- ! Main -->
             <main class="main users p-3" id="skip-target">
+								@include('sweetalert::alert')
                 @yield('content')
             </main>
             <!-- ! Footer -->

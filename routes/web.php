@@ -3,11 +3,12 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataGuruController;
 use App\Http\Controllers\DataUserController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\NilaiSubKriteriaController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PerangkinganController;
-use App\Http\Controllers\PerhituganController;
+use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\SubKriteriaController;
 use App\Models\DataGuru;
@@ -30,12 +31,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    $periode = Periode::where('nama_periode', Carbon::now()->year)->first();
-    $items = Hasil::where('id_periode', $periode->id)->orderBy('rank', 'ASC')->get();
-
-    return view('layouts.home', compact('items'));
-})->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/tahun/{tahun}', [HomeController::class, 'tahun'])->name('tahun');
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('cek-login', [AuthController::class, 'cek_login'])->name('cek_login');
@@ -46,14 +43,7 @@ Route::get('/table', function () {
 
 // route middleware auth
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', function () {
-        $atlet = DataGuru::count();
-        $kriteria = Kriteria::count();
-        $subkriteria = SubKriteria::count();
-        $periode = Periode::count();
-
-        return view('dashboard', compact('atlet', 'kriteria', 'subkriteria', 'periode'));
-    })->name('dashboard');
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -64,7 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('data-sub-kriteria', SubKriteriaController::class);
     Route::resource('nilai-sub-kriteria', NilaiSubKriteriaController::class);
     Route::resource('penilaian', PenilaianController::class);
-    Route::resource('perhitungan', PerhituganController::class);
+    Route::resource('perhitungan', PerhitunganController::class);
     Route::resource('perangkingan', PerangkinganController::class)->only([
         'index', 'show',
     ]);

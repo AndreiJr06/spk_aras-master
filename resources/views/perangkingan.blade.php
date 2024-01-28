@@ -10,7 +10,7 @@
             </div>
             <hr>
             <div class="row justify-content-center">
-                @foreach ($periode as $item)
+                @forelse ($periode as $item)
                     <a href="{{ url('perangkingan/' . $item->id) }}" class="text-decoration-none d-inline col-3 mb-3">
                         <div class="card">
                             <div class="card-bpdy p-5 text-center">
@@ -18,7 +18,15 @@
                             </div>
                         </div>
                     </a>
-                @endforeach
+								@empty
+								<div class="col-md-4">
+									<div class="card">
+											<div class="card-body p-5 text-center">
+													<h5>Belum Ada Periode Aktif</h3>
+											</div>
+									</div>
+								</div>
+                @endforelse
             </div>
         </div>
     @else

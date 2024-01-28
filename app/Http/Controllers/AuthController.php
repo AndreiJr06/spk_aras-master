@@ -45,6 +45,6 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         Alert::success('Sukses', 'Logout Berhasil');
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
 }

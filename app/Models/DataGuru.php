@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class DataGuru extends Model
 {
     use HasFactory;
-    protected $table = 'data_guru';
+    protected $table = 'data_atlet';
 
     protected $fillable = [
-        'nama',
+        'nama', 'bb', 'tb'
     ];
 
     public function nilai()

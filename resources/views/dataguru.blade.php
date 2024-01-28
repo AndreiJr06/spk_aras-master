@@ -18,7 +18,14 @@
                                 <label for="nama">Nama</label>
                                 <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Atlet">
                             </div>
-
+														<div class="form-group mb-2">
+															<label for="bb">Berat Badan <sup>kg</sup></label>
+															<input type="number" class="form-control" id="bb" name="bb" placeholder="Masukkan Berat Badan Atlet">
+														</div>
+														<div class="form-group mb-2">
+															<label for="tb">Tinggi Badan <sup>cm</sup></label>
+															<input type="number" class="form-control" id="tb" name="tb" placeholder="Masukkan Tinggi Badan Atlet">
+														</div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -41,9 +48,17 @@
                         @method('PUT')
                         <div class="modal-body">
                             <div class="form-group mb-2">
-                                <label for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Atlet">
+                              <label for="nama">Nama</label>
+                              <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Atlet">
                             </div>
+														<div class="form-group mb-2">
+															<label for="bb">Berat Badan <sup>kg</sup></label>
+															<input type="number" class="form-control" id="bb" name="bb" placeholder="Masukkan Berat Badan Atlet">
+														</div>
+														<div class="form-group mb-2">
+															<label for="tb">Tinggi Badan <sup>cm</sup></label>
+															<input type="number" class="form-control" id="tb" name="tb" placeholder="Masukkan Tinggi Badan Atlet">
+														</div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -76,6 +91,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
+                                        <th>Tinggi Badan</th>
+                                        <th>Berat Badan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -87,9 +104,11 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $datas->nama }}</td>
+                                            <td>{{ $datas->bb }} kg</td>
+                                            <td>{{ $datas->tb }} cm</td>
                                             <td>
                                                 <button type="button" class="btn btn-warning btn-sm"
-                                                    onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama }}|{{ $datas->pns_gtt }}')"
+                                                    onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama }}|{{ $datas->bb }}||{{ $datas->tb }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataGuru">
                                                     <i class="fa fa-edit">Edit</i>
                                                 </button>
@@ -123,7 +142,8 @@
                 console.log(data);
                 $('#ubahDataGuru form').attr('action', "{{ url('data-guru') }}/" + data[0]);
                 $('#ubahDataGuru .modal-body #nama').val(data[1]);
-                $('#ubahDataGuru .modal-body #pns_gtt').val(data[2]);
+                $('#ubahDataGuru .modal-body #bb').val(data[2]);
+                $('#ubahDataGuru .modal-body #tb').val(data[2]);
                 $('.selectpicker').selectpicker('refresh');
             }
         </script>
