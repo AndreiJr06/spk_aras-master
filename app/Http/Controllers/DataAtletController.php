@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\DataGuru;
+use App\Models\DataAtlet;
 
-class DataGuruController extends Controller
+class DataAtletController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class DataGuruController extends Controller
     public function index()
     {
         //
-        $data = DataGuru::orderBy('id', 'DESC')->get();
-        return view('dataguru', compact('data'));
+        $data = DataAtlet::orderBy('id', 'DESC')->get();
+        return view('dataatlet', compact('data'));
     }
 
     /**
@@ -45,7 +45,7 @@ class DataGuruController extends Controller
             'tb' => 'required',
         ]);
 
-        $data = new DataGuru;
+        $data = new DataAtlet;
         $data->nama = $request->nama;
         $data->bb = $request->bb;
         $data->tb = $request->tb;
@@ -92,7 +92,7 @@ class DataGuruController extends Controller
             'nama' => 'required',
         ]);
 
-        $data = DataGuru::findOrFail($id);
+        $data = DataAtlet::findOrFail($id);
         $data->nama = $request->nama;
 				$data->bb = $request->bb;
         $data->tb = $request->tb;
@@ -111,7 +111,7 @@ class DataGuruController extends Controller
     public function destroy($id)
     {
         //
-        $data = DataGuru::findOrFail($id);
+        $data = DataAtlet::findOrFail($id);
         $data->delete();
 
         Alert::success('Berhasil', 'Data Berhasil Dihapus');

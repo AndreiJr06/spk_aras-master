@@ -43,15 +43,15 @@
                         <div class="modal-body">
                             <input type="hidden" name="id_periode" value="{{ $periode_pilihan->id }}">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="id_guru">Nama Guru</label>
+                                <label class="form-label" for="id_atlet">Nama Atlet</label>
                                 <input class="form-control" list="nama_guru" placeholder="Ketik untuk mencari..."
-                                    id="id_guru">
+                                    id="id_atlet">
                                 <datalist id="nama_guru">
                                     @foreach ($data_guru as $item)
                                         <option data-value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
                                 </datalist>
-                                <input type="hidden" name="id_guru" id="id_guru-hidden">
+                                <input type="hidden" name="id_atlet" id="id_atlet-hidden">
                             </div>
                             @foreach ($kriteria as $item)
                                 <div class="form-group mb-2">
@@ -127,8 +127,8 @@
                         <div class="modal-body">
                             <input type="hidden" name="id_periode" value="{{ $periode_pilihan->id }}">
                             <div class="form-group mb-2">
-                                <label class="form-label" for="id_guru">Nama Atlet</label>
-                                <select class="form-select" name="id_guru">
+                                <label class="form-label" for="id_atlet">Nama Atlet</label>
+                                <select class="form-select" name="id_atlet">
                                     @foreach ($guru as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach

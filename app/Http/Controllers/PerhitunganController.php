@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataGuru;
+use App\Models\DataAtlet;
 use App\Models\Hasil;
 use App\Models\Kriteria;
 use App\Models\Nilai;
@@ -64,8 +64,8 @@ class PerhitunganController extends Controller
 
         $kriteria = Kriteria::all();
 
-        $guru = DataGuru::whereIn('id', function ($query) use ($id) {
-            $query->select('id_guru')->from('nilai')->where('id_periode', $id);
+        $guru = DataAtlet::whereIn('id', function ($query) use ($id) {
+            $query->select('id_atlet')->from('nilai')->where('id_periode', $id);
         })->get();
 
         $kriteria->each(function ($item) use ($periode_pilihan) {
@@ -89,7 +89,7 @@ class PerhitunganController extends Controller
             $si_tampung = [];
             $kriteria->each(function ($k) use ($item, $periode_pilihan, &$si_tampung) {
                 $nilai = Nilai::where('id_kriteria', $k->id)
-                    ->where('id_guru', $item->id)
+                    ->where('id_atlet', $item->id)
                     ->where('id_periode', $periode_pilihan->id)
                     ->first()->nilai;
 
@@ -97,7 +97,7 @@ class PerhitunganController extends Controller
                 $normalisasi_terbobot = $normalisasi_kriteria * $k->bobot->nilai_roc;
 
                 Nilai::where('id_kriteria', $k->id)
-                    ->where('id_guru', $item->id)
+                    ->where('id_atlet', $item->id)
                     ->where('id_periode', $periode_pilihan->id)
                     ->update([
                         'normalisasi_kriteria' => $normalisasi_kriteria,
@@ -110,7 +110,7 @@ class PerhitunganController extends Controller
 
             Hasil::updateOrCreate(
                 [
-                    'id_guru' => $item->id,
+                    'id_atlet' => $item->id,
                     'id_periode' => $periode_pilihan->id,
                 ],
                 [
@@ -132,14 +132,14 @@ class PerhitunganController extends Controller
         });
 
         $hasil_perhitungan = Hasil::where('id_periode', $periode_pilihan->id)
-            ->orderBy('id_guru', 'asc')
+            ->orderBy('id_atlet', 'asc')
             ->get();
 
         $hasil_nilai = $guru->map(function ($item) use ($kriteria, $periode_pilihan) {
             $tampung = [];
             $kriteria->each(function ($k) use ($item, $periode_pilihan, &$tampung) {
                 $nilai_perhitungan = Nilai::where('id_kriteria', $k->id)
-                    ->where('id_guru', $item->id)
+                    ->where('id_atlet', $item->id)
                     ->where('id_periode', $periode_pilihan->id)
                     ->first();
 

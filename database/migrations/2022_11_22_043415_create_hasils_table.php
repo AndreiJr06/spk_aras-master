@@ -18,9 +18,9 @@ return new class extends Migration
             $table->double('si', 15, 5)->nullable();
             $table->double('ki', 15, 5)->nullable();
             $table->integer('rank')->unsigned()->nullable();
-            $table->unsignedBigInteger('id_guru');
+            $table->unsignedBigInteger('id_atlet');
             $table->unsignedBigInteger('id_periode');
-            $table->foreign('id_guru')->references('id')->on('data_atlet')->onDelete('cascade');
+            $table->foreign('id_atlet')->references('id')->on('data_atlet')->onDelete('cascade');
             $table->foreign('id_periode')->references('id')->on('periode')->onDelete('cascade');
             $table->timestamps();
         });

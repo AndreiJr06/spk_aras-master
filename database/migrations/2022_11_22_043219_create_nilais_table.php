@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('nilai', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_guru');
-            $table->foreign('id_guru')->references('id')->on('data_atlet')->onDelete('cascade');
+            $table->unsignedBigInteger('id_atlet');
+            $table->foreign('id_atlet')->references('id')->on('data_atlet')->onDelete('cascade');
             $table->unsignedBigInteger('id_kriteria');
             $table->foreign('id_kriteria')->references('id')->on('kriteria')->onDelete('cascade');
             $table->unsignedBigInteger('id_periode');

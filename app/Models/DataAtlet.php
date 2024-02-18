@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DataGuru extends Model
+class DataAtlet extends Model
 {
     use HasFactory;
     protected $table = 'data_atlet';
@@ -16,6 +16,6 @@ class DataGuru extends Model
 
     public function nilai()
     {
-        return $this->hasMany(Nilai::class, 'id_guru');
+        return $this->hasMany(Nilai::class, 'id_atlet');
     }
 }

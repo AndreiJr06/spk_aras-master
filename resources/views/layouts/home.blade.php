@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>SPK Atlit Gulat Terbaik Kota Bengkulu</title>
+    <title>SPK Atlet Gulat Terbaik Kota Bengkulu</title>
 		<link rel="icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">
 		<link rel="shortcut icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">
 
@@ -93,8 +93,8 @@ https://templatemo.com/tm-589-lugx-gaming
         <div class="col-lg-6 align-self-center">
           <div class="caption header-text">
             <h6>Selamat Datang di Sistem Pendukung Keputusan</h6>
-            <h2>PEMILIHAN ATLIT GULAT TERBAIK BENGKULU</h2>
-            <p>Website ini merupakan platform digital yang dirancang khusus untuk membantu dalam proses seleksi dan penilaian atlet gulat di Kota Bengkulu. Dengan antarmuka yang intuitif dan mudah digunakan, sistem ini menyediakan data komprehensif dan analisis mendalam terkait kinerja atlet, membantu dalam pengambilan keputusan yang lebih objektif dan adil.</p>
+            <h2>PEMILIHAN ATLET GULAT TERBAIK BENGKULU</h2>
+            <p>Sistem pendukung keputusan penentuan atlet gulat terbaik untuk kejuaraan nasional PraPON adalah sistem pendukung keputusan yang dapat membantu pelatih gulat dalam menentukan atlet gulat terbaik untuk mengikuti kejuaraan nasional PraPON di Pusat Pendidikan dan Latihan Olahraga Pelajar di Provinsi Bengkulu.</p>
           </div>
         </div>
         <div class="col-lg-4 offset-lg-2">

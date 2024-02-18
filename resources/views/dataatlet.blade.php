@@ -4,11 +4,11 @@
     <div class="container">
 
 
-        <div class="modal fade" id="tambahDataGuru" tabindex="-1" aria-labelledby="tambahDataGuruLabel" aria-hidden="true">
+        <div class="modal fade" id="tambahDataAtlet" tabindex="-1" aria-labelledby="tambahDataAtletLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="tambahDataGuruLabel">Tambah Data Atlet</h5>
+                        <h5 class="modal-title" id="tambahDataAtletLabel">Tambah Data Atlet</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('data-guru') }}" method="POST">
@@ -36,11 +36,11 @@
             </div>
         </div>
 
-        <div class="modal fade" id="ubahDataGuru" tabindex="-1" aria-labelledby="ubahDataGuruLabel" aria-hidden="true">
+        <div class="modal fade" id="ubahDataAtlet" tabindex="-1" aria-labelledby="ubahDataAtletLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ubahDataGuruLabel">Tambah Data Guru</h5>
+                        <h5 class="modal-title" id="ubahDataAtletLabel">Tambah Data Guru</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('data-guru') }}" method="POST">
@@ -75,7 +75,7 @@
             </div>
             <div class="col">
                 <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
-                    data-bs-target="#tambahDataGuru">
+                    data-bs-target="#tambahDataAtlet">
                     Tambah
                 </button>
             </div>
@@ -109,7 +109,7 @@
                                             <td>
                                                 <button type="button" class="btn btn-warning btn-sm"
                                                     onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama }}|{{ $datas->bb }}|{{ $datas->tb }}')"
-                                                    data-bs-toggle="modal" data-bs-target="#ubahDataGuru">
+                                                    data-bs-toggle="modal" data-bs-target="#ubahDataAtlet">
                                                     <i class="fa fa-edit">Edit</i>
                                                 </button>
 
@@ -140,10 +140,10 @@
             function fungsiEdit(data) {
                 var data = data.split('|');
                 console.log(data);
-                $('#ubahDataGuru form').attr('action', "{{ url('data-guru') }}/" + data[0]);
-                $('#ubahDataGuru .modal-body #nama').val(data[1]);
-                $('#ubahDataGuru .modal-body #bb').val(data[2]);
-                $('#ubahDataGuru .modal-body #tb').val(data[3]);
+                $('#ubahDataAtlet form').attr('action', "{{ url('data-guru') }}/" + data[0]);
+                $('#ubahDataAtlet .modal-body #nama').val(data[1]);
+                $('#ubahDataAtlet .modal-body #bb').val(data[2]);
+                $('#ubahDataAtlet .modal-body #tb').val(data[3]);
                 $('.selectpicker').selectpicker('refresh');
             }
         </script>

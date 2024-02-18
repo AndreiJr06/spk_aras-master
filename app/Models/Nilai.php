@@ -11,7 +11,7 @@ class Nilai extends Model
     protected $table = 'nilai';
 
     protected $fillable = [
-        'id_guru',
+        'id_atlet',
         'id_kriteria',
         'id_periode',
         'nilai',
@@ -21,7 +21,7 @@ class Nilai extends Model
 
     public function guru()
     {
-        return $this->belongsTo(DataGuru::class, 'id_guru');
+        return $this->belongsTo(DataAtlet::class, 'id_atlet');
     }
 
     public function kriteria()

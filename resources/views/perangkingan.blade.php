@@ -81,7 +81,7 @@
                                 <table id="dataTable" class="table table-bordered table-striped">
                                     <thead class="bg-primary text-light">
                                         <tr>
-                                            <th class="text-center">Nama Guru</th>
+                                            <th class="text-center">Nama Atlet</th>
                                             <th class="text-center">Rank</th>
                                             <th class="text-center">Nilai</th>
                                         </tr>

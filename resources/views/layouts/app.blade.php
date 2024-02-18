@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPK Atlit Gulat Terbaik Kota Bengkulu</title>
+    <title>SPK Atlet Gulat Terbaik Kota Bengkulu</title>
     <!-- Favicon -->
     <link rel="icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">
 		<link rel="shortcut icon" href="{{ url('frontend/logo.png') }}" type="image/x-icon">

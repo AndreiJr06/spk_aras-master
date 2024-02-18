@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DataGuruController;
+use App\Http\Controllers\DataAtletController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
@@ -11,12 +11,6 @@ use App\Http\Controllers\PerangkinganController;
 use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\SubKriteriaController;
-use App\Models\DataGuru;
-use App\Models\Hasil;
-use App\Models\Kriteria;
-use App\Models\Periode;
-use App\Models\SubKriteria;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::resource('data-user', DataUserController::class);
-    Route::resource('data-guru', DataGuruController::class);
+    Route::resource('data-guru', DataAtletController::class);
     Route::resource('data-periode', PeriodeController::class);
     Route::resource('data-kriteria', KriteriaController::class);
     Route::resource('data-sub-kriteria', SubKriteriaController::class);

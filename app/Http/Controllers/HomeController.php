@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\DataGuru;
+use App\Models\DataAtlet;
 use App\Models\Hasil;
 use App\Models\Kriteria;
 use App\Models\Periode;
@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 	function dashboard() : View {
-		$atlet = DataGuru::count();
+		$atlet = DataAtlet::count();
 		$kriteria = Kriteria::count();
 		$subkriteria = SubKriteria::count();
 		$periode = Periode::count();

@@ -14,13 +14,13 @@ class Hasil extends Model
         'si',
         'ki',
         'rank',
-        'id_guru',
+        'id_atlet',
         'id_periode',
     ];
 
     public function guru()
     {
-        return $this->belongsTo(DataGuru::class, 'id_guru');
+        return $this->belongsTo(DataAtlet::class, 'id_atlet');
     }
 
     public function periode()

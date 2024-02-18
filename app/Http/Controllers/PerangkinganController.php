@@ -32,7 +32,7 @@ class PerangkinganController extends Controller
         $kriteria = Kriteria::all();
 
         $hasil_perhitungan = Hasil::where('id_periode', $periode_pilihan->id)
-            ->orderBy('id_guru', 'asc')
+            ->orderBy('id_atlet', 'asc')
             ->get();
 
         $hasil_perangkingan = Hasil::where('id_periode', $periode_pilihan->id)

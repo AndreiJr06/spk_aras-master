@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\DataGuru;
+use App\Models\DataAtlet;
 use App\Models\Kriteria;
 use App\Models\Nilai;
 use Illuminate\Support\Collection;
@@ -25,18 +25,18 @@ class NilaiImport implements ToCollection, WithHeadingRow
         $kriteria = Kriteria::all();
 
         foreach ($rows as $row) {
-            $cekExist = DataGuru::where('nama', $row['nama'])->first();
+            $cekExist = DataAtlet::where('nama', $row['nama'])->first();
 
             if (empty($cekExist)) {
-                $guru = DataGuru::create([
+                $guru = DataAtlet::create([
                     'nama' => $row['nama'],
                 ]);
 
-                $id_guru = $guru->id;
+                $id_atlet = $guru->id;
 
-                $kriteria->each(function ($item) use ($row, $id_guru, $idperiode) {
+                $kriteria->each(function ($item) use ($row, $id_atlet, $idperiode) {
                     Nilai::updateOrCreate([
-                        'id_guru' => $id_guru,
+                        'id_atlet' => $id_atlet,
                         'id_kriteria' => $item->id,
                         'id_periode' => $idperiode,
                     ], [
@@ -45,11 +45,11 @@ class NilaiImport implements ToCollection, WithHeadingRow
                 });
 
             } else {
-                $id_guru = $cekExist->id;
+                $id_atlet = $cekExist->id;
 
-                $kriteria->each(function ($item) use ($row, $id_guru, $idperiode) {
+                $kriteria->each(function ($item) use ($row, $id_atlet, $idperiode) {
                     Nilai::updateOrCreate([
-                        'id_guru' => $id_guru,
+                        'id_atlet' => $id_atlet,
                         'id_kriteria' => $item->id,
                         'id_periode' => $idperiode,
                     ], [

@@ -91,7 +91,7 @@ INSERT INTO `data_guru` (`id`, `nama`, `pns_gtt`, `created_at`, `updated_at`) VA
 (91, 'DELIA NURUL AFIFA, S.Pd', NULL, '2022-12-04 07:20:02', '2022-12-04 07:20:02'),
 (92, 'ERYANA S.Pd', NULL, '2022-12-04 07:20:02', '2022-12-04 07:20:02');
 
-INSERT INTO `nilai` (`id`, `id_guru`, `id_kriteria`, `id_periode`, `nilai`, `normalisasi_kriteria`, `normalisasi_bobot`, `created_at`, `updated_at`) VALUES
+INSERT INTO `nilai` (`id`, `id_atlet`, `id_kriteria`, `id_periode`, `nilai`, `normalisasi_kriteria`, `normalisasi_bobot`, `created_at`, `updated_at`) VALUES
 (1, 2, 1, 1, 76.55000000, 0.01058398, 0.00483370, '2022-12-04 07:20:01', '2022-12-04 07:32:19'),
 (2, 2, 2, 1, 82.40000000, 0.01132931, 0.00290823, '2022-12-04 07:20:01', '2022-12-04 07:32:19'),
 (3, 2, 3, 1, 74.00000000, 0.01016907, 0.00159349, '2022-12-04 07:20:01', '2022-12-04 07:32:19'),
@@ -602,7 +602,7 @@ INSERT INTO `nilai` (`id`, `id_guru`, `id_kriteria`, `id_periode`, `nilai`, `nor
 (508, 12, 3, 2, 85.00000000, 0.01134412, 0.00177762, '2022-12-04 07:43:06', '2022-12-04 07:47:05'),
 (509, 12, 4, 2, 81.81000000, 0.01100197, 0.00099018, '2022-12-04 07:43:06', '2022-12-04 07:47:05'),
 (510, 12, 5, 2, 77.27000000, 0.01034500, 0.00041380, '2022-12-04 07:43:06', '2022-12-04 07:47:05');
-INSERT INTO `nilai` (`id`, `id_guru`, `id_kriteria`, `id_periode`, `nilai`, `normalisasi_kriteria`, `normalisasi_bobot`, `created_at`, `updated_at`) VALUES
+INSERT INTO `nilai` (`id`, `id_atlet`, `id_kriteria`, `id_periode`, `nilai`, `normalisasi_kriteria`, `normalisasi_bobot`, `created_at`, `updated_at`) VALUES
 (511, 13, 1, 2, 83.33000000, 0.01115482, 0.00509441, '2022-12-04 07:43:06', '2022-12-04 07:47:05'),
 (512, 13, 2, 2, 85.23000000, 0.01137528, 0.00292004, '2022-12-04 07:43:06', '2022-12-04 07:47:05'),
 (513, 13, 3, 2, 83.00000000, 0.01107720, 0.00173580, '2022-12-04 07:43:07', '2022-12-04 07:47:05'),
@@ -1126,7 +1126,7 @@ INSERT INTO `nilai` (`id`, `id_guru`, `id_kriteria`, `id_periode`, `nilai`, `nor
 (1031, 26, 1, 3, 70.63000000, NULL, NULL, '2022-12-04 07:47:30', '2022-12-04 07:47:30'),
 (1032, 26, 2, 3, 70.63000000, NULL, NULL, '2022-12-04 07:47:30', '2022-12-04 07:47:30'),
 (1033, 26, 3, 3, 70.63000000, NULL, NULL, '2022-12-04 07:47:30', '2022-12-04 07:47:30');
-INSERT INTO `nilai` (`id`, `id_guru`, `id_kriteria`, `id_periode`, `nilai`, `normalisasi_kriteria`, `normalisasi_bobot`, `created_at`, `updated_at`) VALUES
+INSERT INTO `nilai` (`id`, `id_atlet`, `id_kriteria`, `id_periode`, `nilai`, `normalisasi_kriteria`, `normalisasi_bobot`, `created_at`, `updated_at`) VALUES
 (1034, 26, 4, 3, 81.81000000, NULL, NULL, '2022-12-04 07:47:30', '2022-12-04 07:47:30'),
 (1035, 26, 5, 3, 70.63000000, NULL, NULL, '2022-12-04 07:47:30', '2022-12-04 07:47:30'),
 (1036, 27, 1, 3, 83.00000000, NULL, NULL, '2022-12-04 07:47:30', '2022-12-04 07:47:30'),
@@ -1460,7 +1460,7 @@ INSERT INTO `nilai` (`id`, `id_guru`, `id_kriteria`, `id_periode`, `nilai`, `nor
 (1364, 92, 4, 3, 70.63000000, NULL, NULL, '2022-12-04 07:47:31', '2022-12-04 07:47:31'),
 (1365, 92, 5, 3, 69.77000000, NULL, NULL, '2022-12-04 07:47:31', '2022-12-04 07:47:31');
 
-INSERT INTO `hasil` (`id`, `si`, `ki`, `rank`, `id_guru`, `id_periode`, `created_at`, `updated_at`) VALUES
+INSERT INTO `hasil` (`id`, `si`, `ki`, `rank`, `id_atlet`, `id_periode`, `created_at`, `updated_at`) VALUES
 (1, 0.01078453, 0.89084058, 55, 2, 1, '2022-12-04 07:21:04', '2022-12-04 07:32:19'),
 (2, 0.01059406, 0.87510758, 68, 3, 1, '2022-12-04 07:21:04', '2022-12-04 07:32:19'),
 (3, 0.01127702, 0.93152245, 10, 4, 1, '2022-12-04 07:21:05', '2022-12-04 07:32:19'),

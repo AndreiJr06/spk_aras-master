@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\NilaiImport;
-use App\Models\DataGuru;
+use App\Models\DataAtlet;
 use App\Models\Kriteria;
 use App\Models\Nilai;
 use App\Models\Periode;
@@ -21,7 +21,7 @@ class PenilaianController extends Controller
     public function index()
     {
         $periode = Periode::all();
-        $data_atlet = DataGuru::all();
+        $data_atlet = DataAtlet::all();
 
         return view('penilaian', compact('periode', 'data_atlet'));
     }
@@ -44,7 +44,7 @@ class PenilaianController extends Controller
      */
     public function store(Request $request)
     {
-        $id_guru = $request->id_guru;
+        $id_atlet = $request->id_atlet;
         $id_periode = $request->id_periode;
 
         // $id = array();
@@ -63,7 +63,7 @@ class PenilaianController extends Controller
         //     $nilai = $request->nilai[$key];
 
         //     $data = [
-        //         'id_guru' => $id_guru,
+        //         'id_atlet' => $id_atlet,
         //         'id_periode' => $id_periode,
         //         'id_kriteria' => $id_kriteria,
         //         'nilai' => (float) $nilai[$key],
@@ -92,7 +92,7 @@ class PenilaianController extends Controller
             $nilai = $nilaiCount[$id_kriteria];
 
             $data = [
-                'id_guru' => $id_guru,
+                'id_atlet' => $id_atlet,
                 'id_periode' => $id_periode,
                 'id_kriteria' => $id_kriteria,
                 'nilai' => (float) $nilai,
@@ -119,17 +119,17 @@ class PenilaianController extends Controller
         $periode_pilihan = Periode::findOrFail($id);
 
         $kriteria = Kriteria::all();
-        $guru = DataGuru::whereIn('id', function ($query) use ($id) {
-            $query->select('id_guru')->from('nilai')->where('id_periode', $id);
+        $guru = DataAtlet::whereIn('id', function ($query) use ($id) {
+            $query->select('id_atlet')->from('nilai')->where('id_periode', $id);
         })->get();
 
-        $data_guru = DataGuru::whereNotIn('id', function ($query) use ($id) {
-            $query->select('id_guru')->from('nilai')->where('id_periode', $id);
+        $data_guru = DataAtlet::whereNotIn('id', function ($query) use ($id) {
+            $query->select('id_atlet')->from('nilai')->where('id_periode', $id);
         })->get();
 
         $guru->each(function ($item) use ($kriteria, $periode_pilihan) {
             $item->kriteria = $kriteria->map(function ($kriteria) use ($item, $periode_pilihan) {
-                $nilai = Nilai::where('id_guru', $item->id)
+                $nilai = Nilai::where('id_atlet', $item->id)
                     ->where('id_kriteria', $kriteria->id)
                     ->where('id_periode', $periode_pilihan->id)
                     ->first();
@@ -167,14 +167,14 @@ class PenilaianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $guru = DataGuru::findOrFail($id);
+        $guru = DataAtlet::findOrFail($id);
 
         foreach ($request->id_kriteria as $key => $id_kriteria) {
             $nilai = $request->nilai[$key];
 
             Nilai::updateOrCreate(
                 [
-                    'id_guru' => $guru->id,
+                    'id_atlet' => $guru->id,
                     'id_periode' => $request->id_periode,
                     'id_kriteria' => $id_kriteria,
                 ],
@@ -197,9 +197,9 @@ class PenilaianController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        $guru = DataGuru::findOrFail($id);
+        $guru = DataAtlet::findOrFail($id);
 
-        Nilai::where('id_guru', $guru->id)
+        Nilai::where('id_atlet', $guru->id)
             ->where('id_periode', $request->id_periode)
             ->delete();
 

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('data_atlet', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-						$table->integer('bb');
-						$table->integer('tb');
+			$table->integer('bb');
+			$table->integer('tb');
             $table->timestamps();
         });
     }
