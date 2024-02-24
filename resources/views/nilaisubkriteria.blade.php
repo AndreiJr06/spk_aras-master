@@ -7,7 +7,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="tambahDataLabel">Tambah Data Kriteria</h5>
+                        <h5 class="modal-title" id="tambahDataLabel">Tambah Nilai Sub Kriteria</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('nilai-sub-kriteria') }}" method="POST">
@@ -37,7 +37,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ubahDataLabel">Tambah Data Guru</h5>
+                        <h5 class="modal-title" id="ubahDataLabel">Ubah Nilai Sub Kriteria</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('nilai-sub-kriteria') }}" method="POST">
@@ -98,7 +98,7 @@
                                             <td>{{ $datas->nama }}</td>
                                             <td>{{ $datas->nilai }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-sm"
+                                                <button type="button" class="btn btn-warning btn-sm text-white"
                                                     onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama }}|{{ $datas->nilai }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahData">
                                                     <i class="fa fa-edit">Edit</i>

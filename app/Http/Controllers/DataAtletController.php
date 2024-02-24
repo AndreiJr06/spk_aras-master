@@ -98,7 +98,7 @@ class DataAtletController extends Controller
         $data->tb = $request->tb;
         $data->save();
 
-        Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
+        Alert::success('Berhasil', 'Data Berhasil Diubah');
         return back();
     }
 

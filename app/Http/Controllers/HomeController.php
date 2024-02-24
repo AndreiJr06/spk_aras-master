@@ -32,7 +32,7 @@ class HomeController extends Controller
 		} else {			
 			$tahun = Periode::orderBy('nama_periode', 'ASC')->first();
 			if ($tahun) {
-				$items = NULL;
+				$items = Hasil::where('id_periode', $tahun->id)->orderBy('rank', 'ASC')->get();;
 				$tahun = $tahun->nama_periode;
 			} else {
 				$items = NULL;

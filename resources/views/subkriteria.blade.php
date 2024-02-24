@@ -103,7 +103,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $sub->nama_sub_kriteria }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-sm"
+                                                <button type="button" class="btn btn-warning btn-sm text-white"
                                                     onclick="fungsiEdit('{{ $sub->id }}|{{ $sub->kode_kriteria }}|{{ $sub->nama_sub_kriteria }}|{{ $sub->kriteria->nama_kriteria }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataSubKriteria">
                                                     <i class="fa fa-edit">Edit</i>

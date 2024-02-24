@@ -45,7 +45,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ubahDataUserLabel">Tambah Data User</h5>
+                        <h5 class="modal-title" id="ubahDataUserLabel">Ubah Data User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('data-user') }}" method="POST">
@@ -116,7 +116,7 @@
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->username }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-sm"
+                                                <button type="button" class="btn btn-warning btn-sm text-white"
                                                     onclick="fungsiEdit('{{ $data->id }}|{{ $data->name }}|{{ $data->username }}|{{ $data->password }}|{{ $data->email }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataUser">
                                                     <i class="fa fa-edit">Edit</i>

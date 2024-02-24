@@ -49,7 +49,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ubahDataKriteriaLabel">Tambah Data Guru</h5>
+                        <h5 class="modal-title" id="ubahDataKriteriaLabel">Ubah Data Kriteria</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('data-kriteria') }}" method="POST">
@@ -127,7 +127,7 @@
                                             <td>{{ $datas->keterangan }}</td>
                                             <td>{{ $datas->bobot->nilai_bobot }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-sm"
+                                                <button type="button" class="btn btn-warning btn-sm text-white"
                                                     onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->kode_kriteria }}|{{ $datas->nama_kriteria }}|{{ $datas->keterangan }}|{{ $datas->bobot->nilai_bobot }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataKriteria">
                                                     <i class="fa fa-edit">Edit</i>

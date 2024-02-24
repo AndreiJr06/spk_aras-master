@@ -40,7 +40,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ubahDataAtletLabel">Tambah Data Guru</h5>
+                        <h5 class="modal-title" id="ubahDataAtletLabel">Ubah Data Atlet</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="{{ url('data-guru') }}" method="POST">
@@ -104,10 +104,10 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $datas->nama }}</td>
-                                            <td>{{ $datas->bb }} kg</td>
                                             <td>{{ $datas->tb }} cm</td>
+                                            <td>{{ $datas->bb }} kg</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-sm"
+                                                <button type="button" class="btn btn-warning btn-sm text-white"
                                                     onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama }}|{{ $datas->bb }}|{{ $datas->tb }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataAtlet">
                                                     <i class="fa fa-edit">Edit</i>

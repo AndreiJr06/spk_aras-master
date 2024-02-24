@@ -10,7 +10,19 @@
             </div>
             <hr>
             <div class="row justify-content-center">
-                @forelse ($periode as $item)
+				<div class="col-md-4">
+					<div class="form-group">
+						<select class="form-control" id="exampleFormControlSelect1" onchange="location = this.value;">
+							<option value="" hidden>-- Pilih Periode Terlebih Dahulu --</option>
+							@forelse ($periode as $item)
+								<option value="{{ url('penilaian/' . $item->id) }}">{{ $item->nama_periode }}</option>
+							@empty
+								
+							@endforelse
+						</select>
+					</div>
+				</div>
+                {{-- @forelse ($periode as $item)
                     <a href="{{ url('penilaian/' . $item->id) }}" class="text-decoration-none d-inline col-4 mb-3">
                         <div class="card">
                             <div class="card-body p-5 text-center">
@@ -26,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                @endforelse
+                @endforelse --}}
             </div>
         </div>
     @else
@@ -151,12 +163,13 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col">
+					<a href="{{ route('penilaian.index') }}" class="btn btn-warning text-white mb-2">Kembali</a>
                     <h2 class="main-title my-auto">Periode {{ $periode_pilihan->nama_periode }}</h2>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
                         data-bs-target="#tambahPenilaian">
-                        Tambah
+                        Tambah Penilaian
                     </button>
 
                     {{-- <button type="button" class="btn btn-success float-end me-3" data-bs-toggle="modal"

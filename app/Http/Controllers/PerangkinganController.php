@@ -37,7 +37,6 @@ class PerangkinganController extends Controller
 
         $hasil_perangkingan = Hasil::where('id_periode', $periode_pilihan->id)
             ->orderBy('rank', 'asc')
-            ->limit(10)
             ->get();
 
         return view('perangkingan', compact('periode_pilihan', 'hasil_perangkingan', 'hasil_perhitungan'));

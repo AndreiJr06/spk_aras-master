@@ -10,7 +10,19 @@
             </div>
             <hr>
             <div class="row justify-content-center">
-                @forelse ($periode as $item)
+				<div class="col-md-4">
+					<div class="form-group">
+						<select class="form-control" id="exampleFormControlSelect1" onchange="location = this.value;">
+							<option value="" hidden>-- Pilih Periode Terlebih Dahulu --</option>
+							@forelse ($periode as $item)
+								<option value="{{ url('perangkingan/' . $item->id) }}">{{ $item->nama_periode }}</option>
+							@empty
+								
+							@endforelse
+						</select>
+					</div>
+				</div>
+                {{-- @forelse ($periode as $item)
                     <a href="{{ url('perangkingan/' . $item->id) }}" class="text-decoration-none d-inline col-3 mb-3">
                         <div class="card">
                             <div class="card-bpdy p-5 text-center">
@@ -26,7 +38,7 @@
 											</div>
 									</div>
 								</div>
-                @endforelse
+                @endforelse --}}
             </div>
         </div>
     @else
@@ -74,7 +86,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="text-center my-4">
-                                <h4 class="fw-bold">Hasil Rekomendasi Guru Terbaik</h4>
+                                <h4 class="fw-bold">Hasil Rekomendasi Atlet Terbaik</h4>
                             </div>
                             <hr>
                             <div class="table-responsive">

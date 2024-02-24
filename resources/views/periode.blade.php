@@ -89,7 +89,7 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $datas->nama_periode }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning btn-sm"
+                                                <button type="button" class="btn btn-warning btn-sm text-white"
                                                     onclick="fungsiEdit('{{ $datas->id }}|{{ $datas->nama_periode }}')"
                                                     data-bs-toggle="modal" data-bs-target="#ubahDataPeriode">
                                                     <i class="fa fa-edit">Edit</i>
