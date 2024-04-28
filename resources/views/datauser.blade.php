@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -14,22 +14,22 @@
                         <div class="modal-body">
                             <div class="form-group mb-2">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" name="username">
+                                <input type="text" class="form-control" id="username" name="username" required>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" name="password">
+                                <input type="text" class="form-control" id="password" name="password" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -54,22 +54,22 @@
                         <div class="modal-body">
                             <div class="form-group mb-2">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" required>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" name="username">
+                                <input type="text" class="form-control" id="username" name="username" required>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
 
                             <div class="form-group mb-2">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" name="password">
+                                <input type="text" class="form-control" id="password" name="password" required>
                             </div>
                         </div>
                         <div class="modal-footer">

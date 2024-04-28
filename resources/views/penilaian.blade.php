@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     @if (empty($periode_pilihan))
@@ -57,7 +57,7 @@
                             <div class="form-group mb-2">
                                 <label class="form-label" for="id_atlet">Nama Atlet</label>
                                 <input class="form-control" list="nama_guru" placeholder="Ketik untuk mencari..."
-                                    id="id_atlet">
+                                    id="id_atlet" required>
                                 <datalist id="nama_guru">
                                     @foreach ($data_guru as $item)
                                         <option data-value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -69,12 +69,12 @@
                                 <div class="form-group mb-2">
                                     <label class="form-label font-weight-bold" for="nilai_bobot">{{ $item->nama_kriteria }} ({{ $item->kode_kriteria }})
                                     </label><br>
-                                    <input type="hidden" name="id_kriteria[]" value="{{ $item->id }}">
+                                    <input type="hidden" name="id_kriteria[]" value="{{ $item->id }}" required>
                                     @forelse ($item->subkriteria as $item2)
                                         <label class="form-label" for="nilai_bobot">{{ $item2->nama_sub_kriteria }}
-                                        <input type="hidden" name="id_sub_kriteria[]" value="{{ $item->id }}">
-                                        <select name="nilai[]" id="nilai_bobot" class="form-control">
-                                            <option hidden>-- Pilih Jawaban Anda --</option>
+                                        <input type="hidden" name="id_sub_kriteria[]" value="{{ $item->id }}" required>
+                                        <select name="nilai[]" id="nilai_bobot" class="form-control" required>
+                                            <option hidden value="">-- Pilih Jawaban Anda --</option>
                                             @forelse ($item2->nilai as $item3)
                                             <option value="{{ $item3->nilai }}+{{ $item->id }}">{{ $item3->nama }}</option>
                                             @empty
@@ -140,7 +140,7 @@
                             <input type="hidden" name="id_periode" value="{{ $periode_pilihan->id }}">
                             <div class="form-group mb-2">
                                 <label class="form-label" for="id_atlet">Nama Atlet</label>
-                                <select class="form-select" name="id_atlet">
+                                <select class="form-select" name="id_atlet" required>
                                     @foreach ($guru as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach

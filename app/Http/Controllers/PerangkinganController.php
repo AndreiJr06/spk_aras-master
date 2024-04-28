@@ -41,4 +41,15 @@ class PerangkinganController extends Controller
 
         return view('perangkingan', compact('periode_pilihan', 'hasil_perangkingan', 'hasil_perhitungan'));
     }
+
+	public function cetak($id)
+	{
+		$periode_pilihan = Periode::findOrFail($id);
+
+		$items = Hasil::where('id_periode', $periode_pilihan->id)
+            ->orderBy('rank', 'asc')
+            ->get();
+
+		return view('pdf', compact('items', 'periode_pilihan'));
+	}
 }

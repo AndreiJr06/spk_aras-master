@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     @if (empty($periode_pilihan))
@@ -88,6 +88,9 @@
                             <div class="text-center my-4">
                                 <h4 class="fw-bold">Hasil Rekomendasi Atlet Terbaik</h4>
                             </div>
+							<div class="d-flex justify-content-end">
+								<a href="{{ route('perangkingan.cetak', $periode_pilihan->id) }}" class="btn btn-danger" target="_blank"><i class="fa fa-download"></i> Cetak Hasil Perangkingan</a>
+							</div>
                             <hr>
                             <div class="table-responsive">
                                 <table id="dataTable" class="table table-bordered table-striped">

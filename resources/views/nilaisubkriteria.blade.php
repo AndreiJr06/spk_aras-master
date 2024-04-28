@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -16,11 +16,11 @@
                             <input type="hidden" name="sub_kriteria_id" value="{{ $item->id }}">
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama">
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" required>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nilai">Nilai</label>
-                                <input type="number" class="form-control" id="nilai" name="nilai" placeholder="00.00" step="0.1" min="0">
+                                <input type="number" class="form-control" id="nilai" name="nilai" placeholder="00.00" step="0.1" min="0" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -46,11 +46,11 @@
                         <div class="modal-body">
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nama">Nama</label>
-                                <input type="text" class="form-control" id="nama" name="nama">
+                                <input type="text" class="form-control" id="nama" name="nama" required>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nilai">Nilai</label>
-                                <input type="number" step="0.1" class="form-control" id="nilai" name="nilai" placeholder="00.00" min="0">
+                                <input type="number" step="0.1" class="form-control" id="nilai" name="nilai" placeholder="00.00" min="0" required>
                             </div>
                         </div>
                         <div class="modal-footer">

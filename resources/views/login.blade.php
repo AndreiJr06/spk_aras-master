@@ -20,7 +20,7 @@
         }
 
         .form-btn {
-            margin-top: 1.5rem;
+            margin-top: .4rem;
         }
     </style>
 </head>
@@ -30,7 +30,7 @@
     <div class="layer"></div>
     <main class="page-center">
         <article class="sign-up">
-            <form class="sign-up-form form mt-5" action="cek-login" method="POST">
+            <form class="sign-up-form form mt-5" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col text-center">
@@ -49,7 +49,8 @@
                     <input class="form-input" type="password" placeholder="Enter your password" name="password"
                         required>
                 </label>
-                <button type="submit" class="form-btn primary-default-btn transparent-btn">Masuk</button>
+                <button type="submit" class="form-btn primary-default-btn transparent-btn" style="margin-bottom: 6px">Masuk</button>
+				<a href="{{ route('password.request') }}" style="color: blue; font-size: 16px; padding-top: 20px !important;"><u>Lupa Password?</u></a>
             </form>
         </article>
     </main>

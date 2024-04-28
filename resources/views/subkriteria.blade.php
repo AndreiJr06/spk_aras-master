@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nama_sub_kriteria">Nama Sub Kriteria</label>
-                                <input type="text" class="form-control" id="nama_sub_kriteria" name="nama_sub_kriteria" placeholder="Masukkan Nama Sub Kriteria">
+                                <input type="text" class="form-control" id="nama_sub_kriteria" name="nama_sub_kriteria" placeholder="Masukkan Nama Sub Kriteria" required>
                             </div>
                         </div>
                         <div class="modal-footer">

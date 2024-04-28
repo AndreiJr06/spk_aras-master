@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -20,11 +20,11 @@
                             </div>
 														<div class="form-group mb-2">
 															<label for="bb">Berat Badan <sup>kg</sup></label>
-															<input type="number" class="form-control" id="bb" name="bb" placeholder="Masukkan Berat Badan Atlet">
+															<input type="number" class="form-control" id="bb" name="bb" placeholder="Masukkan Berat Badan Atlet" required>
 														</div>
 														<div class="form-group mb-2">
 															<label for="tb">Tinggi Badan <sup>cm</sup></label>
-															<input type="number" class="form-control" id="tb" name="tb" placeholder="Masukkan Tinggi Badan Atlet">
+															<input type="number" class="form-control" id="tb" name="tb" placeholder="Masukkan Tinggi Badan Atlet" required>
 														</div>
                         </div>
                         <div class="modal-footer">
@@ -53,11 +53,11 @@
                             </div>
 														<div class="form-group mb-2">
 															<label for="bb">Berat Badan <sup>kg</sup></label>
-															<input type="number" class="form-control" id="bb" name="bb" placeholder="Masukkan Berat Badan Atlet">
+															<input type="number" class="form-control" id="bb" name="bb" placeholder="Masukkan Berat Badan Atlet" required>
 														</div>
 														<div class="form-group mb-2">
 															<label for="tb">Tinggi Badan <sup>cm</sup></label>
-															<input type="number" class="form-control" id="tb" name="tb" placeholder="Masukkan Tinggi Badan Atlet">
+															<input type="number" class="form-control" id="tb" name="tb" placeholder="Masukkan Tinggi Badan Atlet" required>
 														</div>
                         </div>
                         <div class="modal-footer">

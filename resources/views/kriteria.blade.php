@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -15,15 +15,15 @@
                         <div class="modal-body">
                             <div class="form-group mb-2">
                                 <label class="form-label" for="kode_kriteria">Kode Kriteria</label>
-                                <input type="text" class="form-control" id="kode_kriteria" name="kode_kriteria">
+                                <input type="text" class="form-control" id="kode_kriteria" name="kode_kriteria" required>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nama_kriteria">Nama Kriteria</label>
-                                <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria">
+                                <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" required>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="keterangan">Keterangan</label>
-                                <select class="form-select" id="keterangan" name="keterangan">
+                                <select class="form-select" id="keterangan" name="keterangan" required>
                                     <option selected value="">Pilih Tipe</option>
                                     <option value="Cost">Cost</option>
                                     <option value="Benefit">Benefit</option>
@@ -32,7 +32,7 @@
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nilai_bobot">Bobot</label>
                                 <input type="number" step="any" class="form-control" id="nilai_bobot"
-                                    name="nilai_bobot">
+                                    name="nilai_bobot" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -58,15 +58,15 @@
                         <div class="modal-body">
                             <div class="form-group mb-2">
                                 <label class="form-label" for="kode_kriteria">Kode Kriteria</label>
-                                <input type="text" class="form-control" id="kode_kriteria" name="kode_kriteria">
+                                <input type="text" class="form-control" id="kode_kriteria" name="kode_kriteria" required>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nama_kriteria">Nama Kriteria</label>
-                                <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria">
+                                <input type="text" class="form-control" id="nama_kriteria" name="nama_kriteria" required>
                             </div>
                             <div class="form-group mb-2">
                                 <label class="form-label" for="keterangan">Keterangan</label>
-                                <select class="form-select" id="keterangan" name="keterangan">
+                                <select class="form-select" id="keterangan" name="keterangan" required>
                                     <option selected value="">Pilih Tipe</option>
                                     <option value="Cost">Cost</option>
                                     <option value="Benefit">Benefit</option>
@@ -75,7 +75,7 @@
                             <div class="form-group mb-2">
                                 <label class="form-label" for="nilai_bobot">Bobot</label>
                                 <input type="number" step="any" class="form-control" id="nilai_bobot"
-                                    name="nilai_bobot">
+                                    name="nilai_bobot" required>
                             </div>
                         </div>
                         <div class="modal-footer">
