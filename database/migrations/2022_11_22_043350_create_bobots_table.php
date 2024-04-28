@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('bobot', function (Blueprint $table) {
             $table->id();
-            $table->double('nilai_roc', 15, 5)->nullable();
-            $table->double('nilai_bobot', 15, 5)->nullable();
+            $table->double('nilai_roc', 15, 6)->nullable();
+            $table->double('nilai_bobot', 15, 6)->nullable();
             $table->unsignedBigInteger('id_kriteria');
             $table->foreign('id_kriteria')->references('id')->on('kriteria')->onDelete('cascade');
             $table->timestamps();
